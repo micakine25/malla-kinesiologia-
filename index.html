@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular Kinesiología</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <header>
+        <h1>Malla Interactiva: Kinesiología</h1>
+        <div class="leyenda">
+            <span class="badge disponible">Disponible</span>
+            <span class="badge aprobado">Aprobado</span>
+            <span class="badge bloqueado">Bloqueado (Faltan requisitos)</span>
+        </div>
+        <button id="btn-reset" onclick="resetearProgreso()">Reiniciar Todo</button>
+    </header>
+
+    <div class="main-container">
+        <div id="malla-grid" class="malla-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
