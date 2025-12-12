@@ -1,1 +1,163 @@
+/* Variables de colores (Paleta Pastel Minimalista) */
+:root {
+    --bg-body: #fdfbf7;
+    --text-main: #4a4a4a;
+    --card-bg: #ffffff;
+    --card-border: #e0e0e0;
+    
+    /* Estados */
+    --color-disponible: #fff; 
+    --border-disponible: #90caf9; /* Azul pastel suave */
+    
+    --color-aprobado: #c8e6c9; /* Verde pastel */
+    --text-aprobado: #2e7d32;
+    
+    --color-bloqueado: #f5f5f5; /* Gris claro */
+    --text-bloqueado: #bdbdbd;
+    
+    --header-bg: #ffe0b2; /* Naranja pastel muy suave */
+}
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Leyenda de colores */
+.leyenda {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    border: 1px solid #ccc;
+}
+
+.badge.disponible { background-color: var(--card-bg); border-color: var(--border-disponible); }
+.badge.aprobado { background-color: var(--color-aprobado); color: var(--text-aprobado); border: 1px solid transparent; }
+.badge.bloqueado { background-color: var(--color-bloqueado); color: var(--text-bloqueado); }
+
+/* Botón de reinicio */
+#btn-reset {
+    background: #ffccbc;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.3s;
+}
+#btn-reset:hover { background: #ffab91; }
+
+/* Contenedor principal de la malla */
+.malla-grid {
+    display: flex;
+    overflow-x: auto; /* Permite scroll horizontal si no cabe en pantalla */
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+/* Columnas por semestre */
+.semestre-col {
+    min-width: 200px;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.semestre-title {
+    text-align: center;
+    font-weight: 600;
+    background-color: #e1f5fe;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+/* Tarjeta de Ramo */
+.ramo-card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-disponible);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: relative;
+    user-select: none;
+}
+
+.ramo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Estado: Aprobado */
+.ramo-card.aprobado {
+    background-color: var(--color-aprobado);
+    border-color: var(--color-aprobado);
+    color: var(--text-aprobado);
+    text-decoration: line-through;
+    opacity: 0.9;
+}
+
+.ramo-card.aprobado::after {
+    content: '✓';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-weight: bold;
+}
+
+/* Estado: Bloqueado */
+.ramo-card.bloqueado {
+    background-color: var(--color-bloqueado);
+    border-color: #eeeeee;
+    color: var(--text-bloqueado);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.ramo-card.bloqueado:hover {
+    transform: none;
+}
+
+/* Scrollbar personalizada para navegadores Webkit */
+.malla-grid::-webkit-scrollbar {
+    height: 10px;
+}
+.malla-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+.malla-grid::-webkit-scrollbar-thumb {
+    background: #d1c4e9;
+    border-radius: 5px;
+  }
